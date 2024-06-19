@@ -7,11 +7,14 @@ internal class ButtonClick : MonoBehaviour
     private Commad buttonCommand;
     [SerializeField]
     private int sceneNumber;
+    [SerializeField]
+    private Canvas popUp;
 
     private enum Commad
     {
         Shutdown,
-        Redirect
+        Redirect,
+        OpenPopUp
     }
 
     public void ExecuteCommand()
@@ -24,7 +27,12 @@ internal class ButtonClick : MonoBehaviour
         {
             ShutdownExecute();
         }
+        else if (buttonCommand == Commad.OpenPopUp)
+        {
+            OpenPopUpExecute();
+        }
     }
+
     private void RedirectExecute()
     {
         SceneManager.LoadScene(sceneNumber);
@@ -34,5 +42,10 @@ internal class ButtonClick : MonoBehaviour
     {
         ShutdownCommand shutdownCommand = new();
         shutdownCommand.Execute();
+    }
+
+    private void OpenPopUpExecute()
+    {
+        popUp.enabled = !popUp.enabled;
     }
 }
