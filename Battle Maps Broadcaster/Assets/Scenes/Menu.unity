@@ -342,7 +342,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 118837660}
         m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: ExecuteButtonCommand
+        m_MethodName: ExecuteCommand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -399,10 +399,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 118837655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 634c8150d4c40ee4eba1285c769d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: 836d8d02bc02e9b49b0bf45bddf0d404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Command: 0
+  buttonCommand: 0
+  sceneNumber: 0
 --- !u!1 &279223234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1087,7 @@ GameObject:
   - component: {fileID: 1418005416}
   - component: {fileID: 1418005415}
   - component: {fileID: 1418005414}
+  - component: {fileID: 1418005417}
   m_Layer: 5
   m_Name: BtnNew
   m_TagString: Untagged
@@ -1156,7 +1158,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1418005415}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1418005417}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: ExecuteCommand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1418005415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,6 +1209,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418005412}
   m_CullTransparentMesh: 1
+--- !u!114 &1418005417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418005412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836d8d02bc02e9b49b0bf45bddf0d404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonCommand: 1
+  sceneNumber: 1
 --- !u!1 &1483933916
 GameObject:
   m_ObjectHideFlags: 0

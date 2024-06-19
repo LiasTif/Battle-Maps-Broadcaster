@@ -1,23 +1,38 @@
-using Assets.Scripts.Interfaces;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ButtonClick : MonoBehaviour, IButtonClick
+internal class ButtonClick : MonoBehaviour
 {
-    public enum ButtonCommand
+    [SerializeField]
+    private Commad buttonCommand;
+    [SerializeField]
+    private int sceneNumber;
+
+    private enum Commad
     {
         Shutdown,
         Redirect
     }
 
-    [SerializeField]
-    private ButtonCommand Command;
-
-    public void ExecuteButtonCommand()
+    public void ExecuteCommand()
     {
-        if (Command == ButtonCommand.Shutdown)
+        if (buttonCommand == Commad.Redirect)
         {
-            Shutdown.Execute();
-            Debug.Log("Quit");
+            RedirectExecute();
         }
+        else if (buttonCommand == Commad.Shutdown)
+        {
+            ShutdownExecute();
+        }
+    }
+    private void RedirectExecute()
+    {
+        SceneManager.LoadScene(sceneNumber);
+    }
+
+    private void ShutdownExecute()
+    {
+        ShutdownCommand shutdownCommand = new();
+        shutdownCommand.Execute();
     }
 }
